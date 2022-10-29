@@ -32,9 +32,18 @@ def sr_garm(*args):
         return None
 
 
-def intro(**kwargs):
-    for key, value in kwargs.items():
-        print("{} is {}".format(key, value))
+def disp(**kwargs):
+    n = len(kwargs.values())
+    s = sum(kwargs.values())
+    sigma = 0
+    min_val = min(kwargs.values())
+    for k, v in kwargs.items():
+        if v == min_val:
+            print(f"Наименьшая переменная {k} со значением {v}")
+    for a in kwargs.values():
+        sigma += (a - s) ** 2
+    dev = (sigma / (n - 1)) ** 0.5
+    print(f"Среднеквадратическое отклонение - {dev}")
 
 
 if __name__ == "__main__":
@@ -42,19 +51,4 @@ if __name__ == "__main__":
     print(sr_garm(1, 2, 3, 4))
 
     print('\n')
-    intro(
-        Firstname="Sita",
-        Lastname="Sharma",
-        Phone=1234567890,
-        Age=22
-    )
-
-    print('\n')
-    intro(
-        Firstname="John",
-        Lastname="Wood",
-        Email="john@mail.com",
-        Country="Wakanda",
-        Phone=9876543210,
-        Age=25
-    )
+    disp(a=1, b=2, c=3, d=6, e=4, f=2)

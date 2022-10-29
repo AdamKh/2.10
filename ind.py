@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import math
-
-
 def sum_mod_min(*args):
     if args:
         mni = 0
